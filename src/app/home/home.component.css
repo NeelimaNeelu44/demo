@@ -1,0 +1,100 @@
+/* Transparent Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  /* Only Show Menu Items */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-links li a:hover {
+    color: #00df9a;
+  }
+  
+  /* Home Section */
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(120deg, #1e293b, #64748b);
+    color: white;
+  }
+  
+  .text-content h1 {
+    font-size: 3rem;
+  }
+  
+  .text-content h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+  
+  .highlight {
+    color: #00df9a;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background: #00df9a;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .nav-links li:first-child {
+    margin-right: auto; /* Pushes remaining items to the right */
+  }
+
+  .btn.outline {
+    background: transparent;
+    border: 2px solid #00df9a;
+    color: white;
+  }
+
+  .btn-download {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: #ff9800;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .btn-download:hover {
+    background: #e68900;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
