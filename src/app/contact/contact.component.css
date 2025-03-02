@@ -20,7 +20,7 @@
   
   .contact p {
     font-size: 1rem;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     opacity: 0.8;
   }
   
@@ -116,4 +116,8 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-  
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

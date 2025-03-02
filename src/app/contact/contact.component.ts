@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import * as bootstrap from 'bootstrap';
 
@@ -11,6 +12,7 @@ export class ContactComponent implements OnInit {
   contact = { name: '', email: '', message: '' };
   to_name:string = 'Neelima Manyam'
   private modal: any;
+  @ViewChild('contactForm') contactForm!: NgForm;
 
 
   constructor() { }
@@ -21,6 +23,13 @@ export class ContactComponent implements OnInit {
   
 
   onSubmit() {
+
+    if (!this.validateEmail(this.contact.email)) {
+      alert("Please enter a valid email address!");
+      return;
+    }
+   
+    
     emailjs.init('9zC9WJdwJePMgn6Op');
     emailjs.send("service_b8hyr5k","template_8bw4u4f",{
       from_name: this.contact.name,
@@ -34,23 +43,22 @@ export class ContactComponent implements OnInit {
         const bootstrapModal = new bootstrap.Modal(modal);
         bootstrapModal.show();
       }
-      this.contact = { name: '', email: '', message: '' };
+      //this.contact = { name: '', email: '', message: '' };
+      if (this.contactForm?.valid) {
+        console.log('Form submitted:', this.contact);
+        
+        // Reset the form after submission
+        this.contactForm.resetForm();
+      }
 
     
   }
 
-  // emailjs.send("service_b8hyr5k","template_8bw4u4f",{
-  //   from_name: "Manyam",
-  //   to_name: "Neelima",
-  //   message: "Hello",
-  //   from_email: "neelima@gmail.com",
-  //   });
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
+  }
+ 
+  
 
-    // emailjs.send("service_b8hyr5k","template_8bw4u4f",{
-    //   from_name: "Devil",
-    //   to_name: "neelu",
-    //   message: "heyy",
-    //   from_email: "devil@gmail.com",
-    //   });
-//publick key :9zC9WJdwJePMgn6Op
 }
